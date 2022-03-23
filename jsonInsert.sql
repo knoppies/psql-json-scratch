@@ -1,0 +1,5 @@
+create table if not exists tmpjson (j json);
+truncate tmpjson;
+
+-- Some complex objects (about 3 objects deep) in json
+INSERT INTO tmpjson(j) VALUES ('{"insert": [{"id":"c4dd063f-1e01-453c-96d1-afb4046e8363","downgrandparent":[{"downparent":null,"id":"3420ce67-ef9a-4ff5-bc19-b063fffa4da1","greatgrandparentid":"c4dd063f-1e01-453c-96d1-afb4046e8363","parentid":null,"name":"ggpa.gpa"},{"downparent":null,"id":"286da1b2-a9ae-4eb3-bd75-cac5a8d68a3d","greatgrandparentid":"c4dd063f-1e01-453c-96d1-afb4046e8363","parentid":null,"name":"ggpa.gpb"}],"name":"ggpa"},{"id":"2947a5ec-2007-42b4-85bf-2b228d467ef7","downgrandparent":[{"downparent":null,"id":"8d2ec1ab-fcea-4635-90cc-d25ff3bf68aa","greatgrandparentid":"2947a5ec-2007-42b4-85bf-2b228d467ef7","parentid":null,"name":"ggpb.gpa"},{"downparent":null,"id":"fc7e058e-8fae-412e-af69-b501499437a2","greatgrandparentid":"2947a5ec-2007-42b4-85bf-2b228d467ef7","parentid":null,"name":"ggpb.gpb"}],"name":"ggpb"}] }'::json);
